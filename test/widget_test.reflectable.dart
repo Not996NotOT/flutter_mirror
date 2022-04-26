@@ -3,8 +3,8 @@
 // @dart = 2.12
 
 import 'dart:core';
-import 'package:flutter_mirror/main.dart' as prefix0;
 import 'package:flutter_mirror/model/Person.dart' as prefix1;
+import 'package:flutter_mirror/utils/Reflect.dart' as prefix0;
 
 // ignore_for_file: prefer_adjacent_string_concatenation
 // ignore_for_file: prefer_collection_literals
@@ -27,15 +27,16 @@ final _data = <r.Reflectable, r.ReflectorData>{
             7,
             0,
             const prefix0.MyReflectable(),
-            const <int>[0, 1, 2, 5, 6],
-            const <int>[7, 8, 9, 10, 11, 2, 3, 4],
+            const <int>[0, 1, 2, 3, 7, 8],
+            const <int>[9, 10, 11, 12, 13, 3, 4, 5, 6],
             const <int>[],
             -1,
             {},
             {},
             {
-              r'': (bool b) => ({firstName, lastName}) => b
-                  ? prefix1.Person(firstName: firstName, lastName: lastName)
+              r'': (bool b) => ({firstName, lastName, info}) => b
+                  ? prefix1.Person(
+                      firstName: firstName, info: info, lastName: lastName)
                   : null,
               r'fromJson': (bool b) =>
                   (json) => b ? prefix1.Person.fromJson(json) : null
@@ -51,20 +52,23 @@ final _data = <r.Reflectable, r.ReflectorData>{
             const prefix0.MyReflectable(), -1, -1, -1, null, null),
         r.VariableMirrorImpl(r'lastName', 33797, 0,
             const prefix0.MyReflectable(), -1, -1, -1, null, null),
+        r.VariableMirrorImpl(r'info', 2130949, 0, const prefix0.MyReflectable(),
+            -1, -1, -1, null, null),
         r.MethodMirrorImpl(r'toJson', 4325378, 0, -1, -1, -1, null,
             const <int>[], const prefix0.MyReflectable(), null),
-        r.ImplicitGetterMirrorImpl(const prefix0.MyReflectable(), 0, 3),
-        r.ImplicitGetterMirrorImpl(const prefix0.MyReflectable(), 1, 4),
-        r.MethodMirrorImpl(r'', 0, 0, -1, -1, -1, null, const <int>[0, 1],
+        r.ImplicitGetterMirrorImpl(const prefix0.MyReflectable(), 0, 4),
+        r.ImplicitGetterMirrorImpl(const prefix0.MyReflectable(), 1, 5),
+        r.ImplicitGetterMirrorImpl(const prefix0.MyReflectable(), 2, 6),
+        r.MethodMirrorImpl(r'', 0, 0, -1, -1, -1, null, const <int>[0, 1, 2],
             const prefix0.MyReflectable(), null),
-        r.MethodMirrorImpl(r'fromJson', 1, 0, -1, -1, -1, null, const <int>[2],
+        r.MethodMirrorImpl(r'fromJson', 1, 0, -1, -1, -1, null, const <int>[3],
             const prefix0.MyReflectable(), null),
-        r.MethodMirrorImpl(r'==', 131074, -1, -1, -1, -1, null, const <int>[3],
+        r.MethodMirrorImpl(r'==', 131074, -1, -1, -1, -1, null, const <int>[4],
             const prefix0.MyReflectable(), null),
         r.MethodMirrorImpl(r'toString', 131074, -1, -1, -1, -1, null,
             const <int>[], const prefix0.MyReflectable(), null),
         r.MethodMirrorImpl(r'noSuchMethod', 65538, -1, -1, -1, -1, null,
-            const <int>[4], const prefix0.MyReflectable(), null),
+            const <int>[5], const prefix0.MyReflectable(), null),
         r.MethodMirrorImpl(r'hashCode', 131075, -1, -1, -1, -1, null,
             const <int>[], const prefix0.MyReflectable(), null),
         r.MethodMirrorImpl(r'runtimeType', 131075, -1, -1, -1, -1, null,
@@ -74,7 +78,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r.ParameterMirrorImpl(
             r'firstName',
             41990,
-            5,
+            7,
             const prefix0.MyReflectable(),
             -1,
             -1,
@@ -86,7 +90,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r.ParameterMirrorImpl(
             r'lastName',
             41990,
-            5,
+            7,
             const prefix0.MyReflectable(),
             -1,
             -1,
@@ -95,11 +99,13 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             #lastName),
-        r.ParameterMirrorImpl(r'json', 2129926, 6,
+        r.ParameterMirrorImpl(r'info', 2139142, 7,
+            const prefix0.MyReflectable(), -1, -1, -1, null, null, null, #info),
+        r.ParameterMirrorImpl(r'json', 2129926, 8,
             const prefix0.MyReflectable(), -1, -1, -1, null, null, null, null),
-        r.ParameterMirrorImpl(r'other', 32774, 7, const prefix0.MyReflectable(),
+        r.ParameterMirrorImpl(r'other', 32774, 9, const prefix0.MyReflectable(),
             -1, -1, -1, null, null, null, null),
-        r.ParameterMirrorImpl(r'invocation', 32774, 9,
+        r.ParameterMirrorImpl(r'invocation', 32774, 11,
             const prefix0.MyReflectable(), -1, -1, -1, null, null, null, null)
       ],
       <Type>[prefix1.Person],
@@ -112,7 +118,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'runtimeType': (dynamic instance) => instance.runtimeType,
         r'toJson': (dynamic instance) => instance.toJson,
         r'firstName': (dynamic instance) => instance.firstName,
-        r'lastName': (dynamic instance) => instance.lastName
+        r'lastName': (dynamic instance) => instance.lastName,
+        r'info': (dynamic instance) => instance.info
       },
       {},
       <m.LibraryMirror>[

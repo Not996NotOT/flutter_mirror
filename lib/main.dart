@@ -1,23 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mirror/main.reflectable.dart';
 import 'package:flutter_mirror/model/Person.dart';
+import 'package:flutter_mirror/utils/Reflect.dart';
 import 'package:reflectable/reflectable.dart';
-
-class MyReflectable extends Reflectable {
-  const MyReflectable()
-      : super(invokingCapability, declarationsCapability,
-            typeRelationsCapability, libraryCapability);
-}
-
-const myReflectable = MyReflectable();
 
 void main() {
   initializeReflectable();
-  Map<String, dynamic> person = {"firstName": "zhang", "lastName": "xing"};
-  print(person["firstName"]);
-  ClassMirror classMirror = myReflectable.reflectType(Person) as ClassMirror;
-  var personInstance = classMirror.newInstance("fromJson", [person]) as Person;
+
+  var json = """
+{
+    "firstName": "zhang",
+    "lastName": "xing",
+    "info": [
+      {
+        "phone": "17749531388",
+        "address": "小区1",
+        "rooms": [
+          {"name": "room1", "area": 130}
+        ]
+      }
+    ]
+  }
+""";
+
+  var personInstance = MyReflect.reflectInstanceFromJson<Person>(json);
   print(personInstance.firstName + personInstance.lastName);
+  print(personInstance.info[0].phone);
+  print(personInstance.info[0].address);
+  print(personInstance.info[0].rooms[0].name);
+  print(personInstance.info[0].rooms[0].area);
   runApp(const MyApp());
 }
 
