@@ -1,0 +1,5 @@
+class Api {
+   get<T>(){
+
+   }
+}

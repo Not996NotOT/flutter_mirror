@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:reflectable/reflectable.dart';
-import '../utils/Reflect.dart';
+import '../../utils/Reflect.dart';
 part 'Person.g.dart';
 
 class MetaReflector extends Reflectable {
@@ -8,6 +8,7 @@ class MetaReflector extends Reflectable {
 }
 
 @JsonSerializable()
+@myReflectable
 class Room {
   final String name;
   final int area;
